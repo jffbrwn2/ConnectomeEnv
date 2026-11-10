@@ -1,0 +1,13 @@
+**
+!pyproject.toml
+!README.md
+!src/
+!src/proofreading/
+!src/proofreading/*.py
+!src/proofreading/*.html
+!deploy/
+!deploy/portable/
+!deploy/portable/Dockerfile
+
+!LICENSE
+!deploy/portable/requirements.lock

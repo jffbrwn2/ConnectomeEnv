@@ -1,0 +1,29 @@
+name: Portable environment smoke
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/proofreading/**'
+      - 'tests/proofreading/**'
+      - 'deploy/portable/**'
+      - 'pyproject.toml'
+      - '.github/workflows/portable-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build CPU environment
+        run: docker build -f deploy/portable/Dockerfile --build-arg SOURCE_REVISION="$GITHUB_SHA" -t connectome-smoke .
+      - name: Render, edit and score both modes without API calls
+        run: docker run --rm --network none --entrypoint python connectome-smoke -m proofreading.smoke --out /tmp/synthetic-smoke
+      - name: Environment regression tests without network or credentials
+        run: >-
+          docker run --rm --network none --entrypoint python
+          -v "$PWD:/repo:ro" -e PYTHONPATH=/repo
+          connectome-smoke -m pytest /repo/tests/proofreading -q --disable-warnings

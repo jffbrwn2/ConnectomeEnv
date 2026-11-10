@@ -1,0 +1,37 @@
+[project]
+name = "ConnectomeEnv"
+version = "0.1.0rc2"
+readme = "README.md"
+license = {file = "LICENSE"}
+description = "Portable visual-agent environment for connectome proofreading and evaluation"
+requires-python = "==3.11.*"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["proofreading"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+proofreading = ["*.html"]
+
+[project.scripts]
+connectome-workbench = "proofreading.__main__:main"
+connectome-eval = "proofreading.experiment:main"
+connectome-results = "proofreading.results_server:main"
+connectome-bundle = "proofreading.bundle:main"
+connectome-resume = "proofreading.resilient:main"
+connectome-score = "proofreading.release_scoring:main"
+
+[project.optional-dependencies]
+workbench = [
+  "numpy>=1.26,<2", "scipy>=1.12,<2", "Pillow>=10,<13",
+  "networkx>=3,<4", "matplotlib>=3.8,<4", "scikit-image>=0.22,<0.27",
+  "jsonschema>=4,<5", "imageio-ffmpeg>=0.5,<0.7", "moderngl>=5.12,<6",
+]
+remote-em = ["cloud-volume==12.15.2"]
+workbench-streaming = ["caveclient==8.2.1", "cloud-volume==12.15.2", "pyarrow==18.1.0"]
+viewer = ["neuroglancer>=2.40,<3"]
+workbench-test = ["pytest>=8,<9", "pytest-asyncio>=0.26,<2", "playwright>=1.50,<2"]
