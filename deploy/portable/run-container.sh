@@ -17,4 +17,4 @@ exec docker run --rm --init --entrypoint python \
   -e OPENAI_API_KEY -e ANTHROPIC_API_KEY -e OPENROUTER_API_KEY -e MODEL_API_KEY -e GEMINI_API_KEY -e CAVE_API_TOKEN \
   -e CONNECTOME_WORLD_ROOT -e CONNECTOME_PATH_MAP -e CONNECTOME_MOONSHOT_BUDGET_USD -e MOONSHOT_API_KEY \
   -e CONNECTOME_CACHE_DIRECTORY=/cache/streaming \
-  "${CONNECTOME_IMAGE:-connectome-eval:local}" -m "$runner" /work/config.json "$@"
+  "${CONNECTOME_IMAGE:-connectome-eval:0.1.0rc2}" -m "$runner" /work/config.json "$@"
