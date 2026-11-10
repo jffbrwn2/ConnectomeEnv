@@ -12,3 +12,6 @@ data/
 cache/
 results/
 *.tar.gz
+/downloads/
+/config.json
+/model-config.json

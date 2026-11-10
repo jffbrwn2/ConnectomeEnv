@@ -106,6 +106,10 @@ Compute and model hosting are independent. The environment can run on a Linux wo
 
 Scoring uses a fixed local region and frozen references. Later segmentation is a timestamped reference, not a guarantee of fully correct human proofreading. Unknown reference material remains unverified. Wrong additions inside the scoring region are included in the volume accounting; common scoring scope must be aligned when comparing model cohorts. Evaluator files are withheld from hosted model conversations; arbitrary local agent code needs a separate sandbox that cannot access those files.
 
+## Verified setup
+
+On 2026-11-10, a fresh public clone, uncached dependency build, anonymous release download, full bundle verification, and real-data preflight on one split-error and one merge-error case passed on Linux x86-64. Both cases rendered and scored with an empty cache and a CAVE token, running as a non-root user. No hosted model calls were made. See the [validation record](docs/setup-validation.json).
+
 ## Development
 
 This is a clean public source snapshot with fresh history. It excludes private experiment logs, credentials, model checkpoints, and development history. Run `bash deploy/portable/check-release.sh` to build and verify the container.

@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-10",
+  "tested_commit": "b4ce8ec26aa4aac5815f22968a2fac452fec54c9",
+  "platform": "Linux x86-64; Docker; CPU Mesa software rendering",
+  "fresh_public_clone": true,
+  "uncached_dependency_build": true,
+  "anonymous_release_download": true,
+  "archive_sha256": "baecace2ca6b5ae9ea2a7405105f198c973e065fac434ae10ca8ce55ea1d4f32",
+  "bundle_verification": {
+    "status": "verified",
+    "cases": 1000,
+    "files": 8003
+  },
+  "non_root_uid": 1000,
+  "initial_cache": "empty",
+  "credentials_required": [
+    "CAVE_API_TOKEN"
+  ],
+  "model_calls": 0,
+  "real_cases": [
+    {
+      "case_id": "cb2-6e38c96d1fb2ff5d3bf02cfeb2c54fd2-streamed",
+      "status": "preflight"
+    },
+    {
+      "case_id": "cb2-02270fdc371c9cc788dd1b12209c3eb0-streamed",
+      "status": "preflight"
+    }
+  ],
+  "rendered_png_files": 10,
+  "synthetic_smoke_modes": [
+    "cb2",
+    "open-world"
+  ],
+  "pip_check": "passed",
+  "limitation": "No hosted-model inference was performed in this setup check."
+}
